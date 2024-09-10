@@ -1,0 +1,230 @@
+<?php
+    $query = $this->db->query("SELECT * FROM tolSumo WHERE id_tol IN(SELECT MAX(id_tol) FROM tolSumo)")->row();
+?>
+<html>
+    <body>
+        <section id="main-content">
+            <section class="wrapper">
+                <div class="col-lg-12">
+                <div class="panel-body">
+                    <form class="form-horizontal tasi-form" method="get">
+                        <div align="center" class="form-group">
+                            <h3 align="center">LAPORAN PROGRES PERKEMBANGAN PEMBANGUNAN</h3>
+                            <h3 align="center">JALAN TOL SURABAYA - MOJOKERTO (SUMO)</h3>
+                            <h3 align="center">TAHUN 2018</h3>
+                        </div>
+                        <table border="1" cellPadding="9" cellspacing="0" >
+                            <tbody>
+                                <tr>
+                                    <td><p><font size='3'>Nama Proyek</font></p></td>
+                                    <td colspan="3">
+                                    <?php
+                                    echo "<p><font size='3'>".$query->nama_tol."</font></p>";
+                                    ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><p><font size='3'>Panjang Jalan</font></p></td>
+                                    <td colspan="3">
+                                    <?php
+                                    echo "<p><font size='3'>".$query->panjang_tol."</font></p>";
+                                    ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><p><font size='3'>Lokasi</font></p></td>
+                                    <td colspan="3">
+                                    <?php
+                                    echo "<p><font size='3'>".$query->lokasi."</font></p>";
+                                    ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><p><font size='3'>Investor</font></p></td>
+                                    <td colspan="3">
+                                    <?php
+                                    echo "<p><font size='3'>".$query->investor."</font></p>";
+                                    ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><p><font size='3'>Investasi</font></p></td>
+                                    <td colspan="3">
+                                    <?php
+                                    echo "<p><font size='3'>".$query->investasi."</font></p>";
+                                    ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ruas Jalan Tol <p>(Km)</p></td>
+                                    <td><b>Ruas Jalan Tol <p>(Km)</p></td>
+                                    <td><b>Ruas Jalan Tol <p>(Km)</p></td>
+                                    <td><b>Ruas Jalan Tol <p>(Km)</p></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <tr>
+                                <td><p><font size="3">Nama Proyek</font></p></td>
+                                <td colspan="3">
+                                    <?php 
+                                    $query = $this->db->query("SELECT * FROM tolSumo WHERE id_tol IN(SELECT MAX(id_tol) FROM tolSumo)");
+                                    foreach ($query->result() as $row) {
+                                        ?>
+                                        <p><font size="3"><?= $row->nama_tol ?></font></p>
+                                        <?php
+                                    }
+                                    ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><p><font size="3">Panjang Jalan</font></p></td>
+                                <td colspan="3">
+                                    <?php
+                                   $query = $this->db->query("SELECT * FROM tolSumo WHERE id_tol IN(SELECT MAX(id_tol) FROM tolSumo)");
+                                   foreach ($query->result() as $row) {
+                                        ?>
+                                        <p><font size="3"><?= $row->panjang_tol ?> Km</font></p>
+                                        <?php
+                                    }
+                                    ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><p><font size="3">Lokasi</font></p></td>
+                                <td colspan="3">
+                                    <?php
+                                    $query = $this->db->query("SELECT * FROM tolSumo WHERE id_tol IN(SELECT MAX(id_tol) FROM tolSumo)");
+                                    foreach ($query->result() as $row) {
+                                        ?>
+                                        <p><font size="3"><?= $row->lokasi ?></font></p>
+                                        <?php
+                                    }
+                                    ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><p><font size="3">Investor</font></p></td>
+                                <td colspan="3">
+                                    <?php
+                                    $query = $this->db->query("SELECT * FROM tolSumo WHERE id_tol IN(SELECT MAX(id_tol) FROM tolSumo)");
+                                    foreach ($query->result() as $row) {
+                                        ?>
+                                        <p><font size="3"><?= $row->investor ?></font></p>
+                                        <?php
+                                    }
+                                    ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><p><font size="3">Investasi</font></p></td>
+                                <td colspan="3">
+                                    <?php
+                                    $query = $this->db->query("SELECT * FROM tolSumo WHERE id_tol IN(SELECT MAX(id_tol) FROM tolSumo)");
+                                    foreach ($query->result() as $row) {
+                                        ?>
+                                        <p><font size="3"> Rp. <?= $row->investasi ?> Triliun</font></p>
+                                        <?php
+                                    }
+                                    ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center"><p><font size="3"><b>Ruas Jalan Tol <p>(Km)</p></b></font></p></td>
+                                <td align="center"><p><font size="3"><b>Pembebasan <p> Lahan (%)</p></b></font></p></td>
+                                <td align="center"><p><font size="3"><b>Konstruksi <p>(%)</p></b></font></p></td>
+                                <td align="center"><p><font size="3"><b>Status Operasional</b></font></p></td>
+                            <tr>
+                                <td><p><font size="3">Seksi I A (Waru - Sepanjang)</p></font></p></td>
+                                <td align="center"><p><font size="3"><?= $row->tanah_IA ?></font></p></td>
+                                <td align="center"><p><font size="3"><?= $row->konstruksi_IA ?></font></p></td>
+                                <?php
+                                    if($row->status_IA == 'Fungsional'){
+                                        echo"<td align='center'><p><i class='icon-check-minus'></i></p></td>";
+                                    } else if($row->status_IA == 'Operasional'){
+                                        echo"<td align='center'><p><i class='icon-check'></i></p></td>";
+                                    } else if($row->status_IA == 'Belum Beroperasi'){
+                                        echo"<td align='center'><p><i class='icon-ban-circle'></i></p></td>";
+                                    }
+                                ?>
+                            </tr>
+                            <tr>
+                                <td><p><font size="3">Seksi I B (Sepanjang - Western Ring Road)</font></p></td>
+                                <td align="center"><p><font size="3"><?= $row->tanah_IB ?></font></p></td>
+                                <td align="center"><p><font size="3"><?= $row->konstruksi_IB ?></font></p></td>
+                                <?php
+                                    if($row->status_IB == 'Fungsional'){
+                                        echo"<td align='center'><p><i class='icon-check-minus'></i></p></td>";
+                                    } else if($row->status_IB == 'Operasional'){
+                                        echo"<td align='center'><p><i class='icon-check'></i></p></td>";
+                                    } else if($row->status_IB == 'Belum Beroperasi'){
+                                        echo"<td align='center'><p><i class='icon-ban-circle'></i></p></td>";
+                                    }
+                                ?>
+                            </tr>
+                            <tr>
+                                <td><p><font size="3">Seksi II (Western Ring Road - Driyorejo)</font></p></td>
+                                <td align="center"><p><font size="3"><?= $row->tanah_II ?></font></p></td>
+                                <td align="center"><p><font size="3"><?= $row->konstruksi_II ?></font></p></td>
+                                <?php
+                                    if($row->status_II == 'Fungsional'){
+                                        echo"<td align='center'><p><i class='icon-check-minus'></i></p></td>";
+                                    } else if($row->status_II == 'Operasional'){
+                                        echo"<td align='center'><p><i class='icon-check'></i></p></td>";
+                                    } else if($row->status_II == 'Belum Beroperasi'){
+                                        echo"<td align='center'><p><i class='icon-ban-circle'></i></p></td>";
+                                    }
+                                ?>
+                            </tr>
+                            <tr>
+                                <td><p><font size="3">Seksi III (Driyorejo - Krian)</font></p>
+                                </td>
+                                <td align="center"><p><font size="3"><?= $row->tanah_III ?></font></p></td>
+                                <td align="center"><p><font size="3"><?= $row->konstruksi_III ?></font></p></td>
+                                <?php
+                                    if($row->status_III == 'Fungsional'){
+                                        echo"<td align='center'><p><i class='icon-check-minus'></i></p></td>";
+                                    } else if($row->status_III == 'Operasional'){
+                                        echo"<td align='center'><p><i class='icon-check'></i></p></td>";
+                                    } else if($row->status_III == 'Belum Beroperasi'){
+                                        echo"<td align='center'><p><i class='icon-ban-circle'></i></p></td>";
+                                    }
+                                ?>
+                            </tr>
+                            <tr>
+                                <td><p><font size="3">Seksi IV (Krian - Mojokerto)</font></p>
+                                </td>
+                                <td align="center"><p><font size="3"><?= $row->tanah_IV ?></font></p></td>
+                                <td align="center"><p><font size="3"><?= $row->konstruksi_IV ?></font></p></td>
+                                <?php
+                                    if($row->status_IV == 'Fungsional'){
+                                        echo"<td align='center'><p><i class='icon-check-minus'></i></p></td>";
+                                    } else if($row->status_IV == 'Operasional'){
+                                        echo"<td align='center'><p><i class='icon-check'></i></p></td>";
+                                    } else if($row->status_IV == 'Belum Beroperasi'){
+                                        echo"<td align='center'><p><i class='icon-ban-circle'></i></p></td>";
+                                    }
+                                ?>
+                            </tr>
+                        </table>
+                        <div class="col-sm-12">
+                            <div align="left" class="form-group">
+                                <div class="panel-body">
+                                    <p><font size="2"><b>Keterangan :</b></font></p>
+                                    <p><font size="2"><i class="icon-check-minus"></i> : Fungsional &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;<i class="icon-check"></i> : Operasional &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;<i class="icon-ban-circle"></i> : Belum Beroperasi</font></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div align="right" class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                                <button type="button" class="btn btn-primary" data-target="#ubahTolSumoModal" onclick="show_modal('<?= $row->nama_tol ?>','<?= $row->singkatan ?>','<?= $row->panjang_tol ?>','<?= $row->lokasi ?>','<?= $row->investor ?>','<?= $row->investasi ?>','<?= $row->konstruksi_IA ?>','<?= $row->konstruksi_IB ?>','<?= $row->konstruksi_II ?>','<?= $row->konstruksi_III ?>','<?= $row->konstruksi_IV ?>','<?= $row->tanah_IA ?>','<?= $row->tanah_IB ?>','<?= $row->tanah_II ?>','<?= $row->tanah_III ?>','<?= $row->tanah_IV ?>','<?= $row->status_IA ?>','<?= $row->status_IB ?>','<?= $row->status_II ?>','<?= $row->status_III ?>','<?= $row->status_IV ?>')"> Update Data</button>
+                                <button type="button" class="btn btn-warning" href="<?php echo site_url("pdf_utama") ?>">Save to PDF</button>
+                                <button type="button" class="btn btn-danger" onclick="reset()">Batal</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </body>
+</html>
